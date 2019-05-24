@@ -10,7 +10,7 @@ app.use(express.static(__dirname + "/../public"));
 app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
-const location = process.env.MONGODB_URI || "mongodb://localhost:27017/books";
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/books");
 mongoose.connect(location);
 //POST
 app.post("/api/add/store", (req, res) => {
